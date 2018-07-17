@@ -1,1 +1,51 @@
 
+.mapFrame {
+margin: auto;
+text-align: center;
+  height:550px;
+  width:65%;
+  
+}
+iframe {
+margin: auto;
+text-align: center;
+height:5455px;
+  width:100%;
+
+}
+/*-----------------------SMALL SCREEN SIZES------------------------*/
+@media screen and (max-width: 767px){
+  
+  .mapFrame {
+  height:550px;
+  width:80%;
+  
+}
+	iframe {
+
+height:545px;
+  width:100%;
+
+}
+  
+}
+	
+
+
+/*-----------------------EXTRA SMALL SCREEN SIZES------------------------*/
+@media screen and (max-width: 400px){
+  
+  .mapFrame {
+  height:450px;
+  width:95%;
+  
+}
+
+	iframe {
+
+height:445px;
+  width:100%;
+
+}
+  
+}
