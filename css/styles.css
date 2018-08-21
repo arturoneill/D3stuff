@@ -15,18 +15,19 @@ text-align: center;
 }
 
 
-#wind-path{
+#statefill{
   stroke: #d3d3d3 !important;
   stroke-width:1px !important;
 }
 
-#wind-path:hover {
+#statefill:hover {
   stroke: #72cdff !important;
   stroke-width:2px;
   stroke-linejoin: round;
   fill: #72cdff !important;
   cursor: pointer;
 }
+
 #path67 {
   fill: none !important;
   stroke: #A9A9A9 !important;
