@@ -15,6 +15,18 @@
 </head>
 	
 	<body>
+		
+		<script>
+    // Feel free to change or delete any of the code you see in this editor!
+    var svg = d3.select("body")
+      .append("svg")
+      .attr("width", "100%")
+      .attr("height", "100%")
+      .call(d3.zoom().on("zoom", function () {
+              svg.attr("transform", d3.event.transform)
+      }))
+      .append("g")
+     </script>
 			
 
 
@@ -568,17 +580,7 @@
 			
 	<footer>
 		
-					 <script>
-    // Feel free to change or delete any of the code you see in this editor!
-    var svg = d3.select("body")
-      .append("svg")
-      .attr("width", "100%")
-      .attr("height", "100%")
-      .call(d3.zoom().on("zoom", function () {
-              svg.attr("transform", d3.event.transform)
-      }))
-      .append("g")
-     </script>
+					 
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="JS/scripts.js"></script>
