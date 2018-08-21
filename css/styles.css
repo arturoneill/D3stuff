@@ -22,7 +22,7 @@ text-align: center;
 
 .windcone:hover {
 	fill-opacity:0.01;
-  stroke-width:1px;
+  stroke-width:1px !important;
 stroke: black !important;
   stroke-linejoin: round;
  
