@@ -21,10 +21,11 @@ text-align: center;
 }
 
 .windcone:hover {
+	fill: none;
   stroke-width:1px;
-	stroke: black !important;
+stroke: black !important;
   stroke-linejoin: round;
- opacity: 0.01!important;
+ 
   cursor: pointer;
 }
 
