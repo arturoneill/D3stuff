@@ -15,12 +15,12 @@ text-align: center;
 }
 
 
-path{
+#wind-path{
   stroke: #d3d3d3 !important;
   stroke-width:1px !important;
 }
 
-path:hover, circle:hover {
+#wind-path:hover {
   stroke: #72cdff !important;
   stroke-width:2px;
   stroke-linejoin: round;
