@@ -23,7 +23,7 @@ text-align: center;
   stroke: #72cdff !important;
   stroke-width:2px;
   stroke-linejoin: round;
-  fill: #72cdff !important;
+ opacity: 0.2!important;
   cursor: pointer;
 }
 
