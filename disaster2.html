@@ -16,16 +16,7 @@
 	
 	<body>
 			
-			 <script>
-    // Feel free to change or delete any of the code you see in this editor!
-    var svg = d3.select("body")
-      .append("svg")
-      .attr("width", "100%")
-      .attr("height", "100%")
-      .call(d3.zoom().on("zoom", function () {
-              svg.attr("transform", d3.event.transform)
-      }))
-      .append("g")
+
 
 <svg id="disastermap" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="792pt" height="612pt" viewBox="175 100 792 612" enable-background="new 0 0 792 612" version="1.1">
 	<g id="Other">
@@ -572,10 +563,22 @@
 
 
 
-  </script>
+ 
 		
 			
 	<footer>
+		
+					 <script>
+    // Feel free to change or delete any of the code you see in this editor!
+    var svg = d3.select("body")
+      .append("svg")
+      .attr("width", "100%")
+      .attr("height", "100%")
+      .call(d3.zoom().on("zoom", function () {
+              svg.attr("transform", d3.event.transform)
+      }))
+      .append("g")
+     </script>
 
 <script src="https://code.jquery.com/jquery-2.2.4.min.js"></script>
 <script src="JS/scripts.js"></script>
