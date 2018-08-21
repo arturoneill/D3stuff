@@ -16,6 +16,7 @@ text-align: center;
 
 .windcone {
 	opacity: 0.5;
+	stroke-width: 0px !important;
 	
 }
 
