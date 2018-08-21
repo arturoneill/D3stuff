@@ -21,7 +21,7 @@ text-align: center;
 }
 
 .windcone:hover {
-	fill: none;
+	fill-opacity:0.01;
   stroke-width:1px;
 stroke: black !important;
   stroke-linejoin: round;
