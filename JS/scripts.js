@@ -1,10 +1,10 @@
 
-$('.statefill').hover(function(e) {
+$('.windcone').hover(function(e) {
   $('#info-box').css('display','block');
   $('#info-box').html($(this).data('info'));
 });
 
-$('.statefill').mouseleave(function(e) {
+$('.windcone').mouseleave(function(e) {
   $('#info-box').css('display','none');
 });
 
