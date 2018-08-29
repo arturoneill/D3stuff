@@ -8,7 +8,14 @@ $('.windcone').mouseleave(function(e) {
   $('#info-box').css('display','none');
 });
 
+$('.strata10').hover(function(e) {
+  $('#info-box').css('display','block');
+  $('#info-box').html($(this).data('info'));
+});
 
+$('.strata10').mouseleave(function(e) {
+  $('#info-box').css('display','none');
+});
 
 $(document).mousemove(function(e) {
   $('#info-box').css('top',e.pageY-$('#info-box').height()-30);
