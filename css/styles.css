@@ -44,6 +44,16 @@ stroke: black !important;
   cursor: pointer;
 }
 
+.strata10:hover {
+	
+  stroke-width:1px !important;
+stroke: green !important;
+  stroke-linejoin: round;
+ 
+  cursor: pointer;
+}
+
+
 #path67 {
   fill: none !important;
   stroke: #A9A9A9 !important;
