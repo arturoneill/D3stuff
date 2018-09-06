@@ -1,77 +1,91 @@
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta http-equiv="Content-Type" content="text/html;charset=utf-8">
-    <title>Line chart from CSV using d3.js</title>
-    <svg width="960" height="500"></svg>
-<script src="https://d3js.org/d3.v4.min.js"></script>
-    <style>
-	    html, body {
-		    margin: 0;
-		    padding: 0;
-		    height: 100%;
-		    width: 100%;
-	    }
-	    text {
-		    font-family: arial;
-		    font-size: 12px;
-	    }
-	    path.line {
-		    fill: none;
-		    stroke: lightgray;
-		    stroke-width: 2px;
-        stroke-dasharray:2em;
-	    }
-		.axis path,
-		.axis line {
-		  fill: none;
-		  stroke: slategray;
-		  shape-rendering: crispEdges;
-		}
-    </style>
-  </head>
-  <body>
-
-	<script type="text/javascript">
-var margin = {left: 50, right: 20, top: 20, bottom: 50 };
-var width = 960 - margin.left - margin.right;
-var height = 500 - margin.top - margin.bottom;
-var max = 0;
-var xNudge = 50;
-var yNudge = 20;
-var minDate = new Date();
-var maxDate = new Date();
-d3.csv("yielddata.csv")
-    .row(function(d) { return { year: parseDate(d.year), yield: Number(d.yield.trim().slice(1))}; })
-    .get(function(error, rows) {
-	    max = d3.max(rows, function(d) { return d.yield; });
-	    minDate = d3.min(rows, function(d) {return d.year; });
-		maxDate = d3.max(rows, function(d) { return d.year; });
-		var y = d3.scaleLinear()
-					.domain([0,max])
-					.range([height,0]);
-		var x = d3.scaleTime()
-					.domain([minDate,maxDate])
-					.range([0,width]);
-		var yAxis = d3.axisLeft(y);
-		var xAxis = d3.axisBottom(x);
-		var line = d3.line()
-			.x(function(d){ return x(d.year); })
-			.y(function(d){ return y(d.yield); })
-			.curve(d3.curveCardinal);
-		var svg = d3.select("body").append("svg").attr("id","svg").attr("height","100%").attr("width","100%");
-		var chartGroup = svg.append("g").attr("class","chartGroup").attr("transform","translate("+xNudge+","+yNudge+")");
-		chartGroup.append("path")
-			.attr("class","line")
-			.attr("d",function(d){ return line(rows); })
-		chartGroup.append("g")
-			.attr("class","axis x")
-			.attr("transform","translate(0,"+height+")")
-			.call(xAxis);
-		chartGroup.append("g")
-			.attr("class","axis y")
-			.call(yAxis);
+<meta charset="utf-8">
+<style> /* set the CSS */
+ 
+body { font: 12px Arial;}
+ 
+path { 
+  stroke: darkgray;
+  stroke-width: 2;
+  fill: none;
+}
+ 
+.axis path,
+.axis line {
+	fill: none;
+	stroke: grey;
+	stroke-width: 1;
+	shape-rendering: crispEdges;
+}
+ 
+</style>
+<body>
+ 
+<!-- load the d3.js library -->	
+<script src="http://d3js.org/d3.v3.min.js"></script>
+ 
+<script>
+ 
+// Set the dimensions of the canvas / graph
+var	margin = {top: 30, right: 20, bottom: 30, left: 50},
+	width = 600 - margin.left - margin.right,
+	height = 270 - margin.top - margin.bottom;
+ 
+// Parse the date / time
+var	parseDate = d3.time.format("%d-%b-%y").parse;
+ 
+// Set the ranges
+var	x = d3.time.scale().range([0, width]);
+var	y = d3.scale.linear().range([height, 0]);
+ 
+// Define the axes
+var	xAxis = d3.svg.axis().scale(x)
+	.orient("bottom").ticks(5);
+ 
+var	yAxis = d3.svg.axis().scale(y)
+	.orient("left").ticks(5);
+ 
+// Define the line
+var	valueline = d3.svg.line()
+	.x(function(d) { return x(d.year); })
+	.y(function(d) { return y(d.yield); });
+    
+// Adds the svg canvas
+var	svg = d3.select("body")
+	.append("svg")
+		.attr("width", width + margin.left + margin.right)
+		.attr("height", height + margin.top + margin.bottom)
+	.append("g")
+		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+ 
+// Get the data
+d3.csv("yielddata.csv", function(error, data) {
+	data.forEach(function(d) {
+		d.year = +d.year);
+		d.yield = +d.yield;
 	});
-	</script>
-  </body>
-</html>
+ 
+	// Scale the range of the data
+	x.domain(d3.extent(data, function(d) { return d.year; }));
+	y.domain([0, d3.max(data, function(d) { return d.yield; })]);
+ 
+	// Add the valueline path.
+	svg.append("path")	
+		.attr("class", "line")
+		.attr("d", valueline(data));
+ 
+	// Add the X Axis
+	svg.append("g")		
+		.attr("class", "x axis")
+		.attr("transform", "translate(0," + height + ")")
+		.call(xAxis);
+ 
+	// Add the Y Axis
+	svg.append("g")		
+		.attr("class", "y axis")
+		.call(yAxis);
+ 
+});
+ 
+</script>
+</body>
