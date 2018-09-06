@@ -133,25 +133,6 @@ d3.csv("yielddata.csv", function(error, data) {
 
 	
 	
-	
-	// Add tick mouseover effect
-	
-xAxis.selectAll(".tick")[0].forEach(function(d1) {
-    var data = d3.select(d1).data();//get the data asociated with y axis
-    d3.select(d1).on("mouseover", function(d) {
-          tooltip.transition()
-               .duration(200)
-               .style("opacity", .9);
-          tooltip.html("Yield" + "<br/> (" + yValue(d) + " bu/acre)")
-               .style("left", (d3.event.pageX + 5) + "px")
-               .style("top", (d3.event.pageY - 28) + "px");
-      })
-      .on("mouseout", function(d) {
-          tooltip.transition()
-               .duration(500)
-               .style("opacity", 0);
-      });
-      
  
 	// Add the X Axis
 	svg.append("g")		
