@@ -94,6 +94,21 @@ d3.csv("yielddata.csv", function(error, data) {
       .attr("r", 5)
       .attr("cx", xMap)
       .attr("cy", yMap)
+	      .on("mouseover", function(d) {
+          tooltip.transition()
+               .duration(200)
+               .style("opacity", .9);
+          tooltip.html("Yield" + "<br/> (" + xValue(d) 
+	        + ", " + yValue(d) + ")")
+               .style("left", (d3.event.pageX + 5) + "px")
+               .style("top", (d3.event.pageY - 28) + "px");
+      })
+      .on("mouseout", function(d) {
+          tooltip.transition()
+               .duration(500)
+               .style("opacity", 0);
+      });
+
       .attr("fill", "red");
  
 	// Add the X Axis
