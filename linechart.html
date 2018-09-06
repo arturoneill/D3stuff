@@ -143,7 +143,9 @@ d3.csv("yielddata.csv", function(error, data) {
 	
 	// Add tick mouseover effect
 	
-		body.selectAll(".tick")	
+	svg.selectAll(".tick")	
+		.data(data)
+		.enter().append("g")
 	.on("mouseover", function(d) {
           tooltip.transition()
                .duration(200)
