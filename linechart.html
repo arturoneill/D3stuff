@@ -54,7 +54,15 @@ var	yAxis = d3.svg.axis().scale(y)
 var	valueline = d3.svg.line()
 	.x(function(d) { return x(d.year); })
 	.y(function(d) { return y(d.yield); });
-
+	
+// Define the dots
+var xValue = function(d) { return d.year;}, // data -> value
+   // xScale = d3.scale.linear().range([0, width]), // value -> display
+    xMap = function(d) { return x(xValue(d));}, // data -> display	
+	
+var yValue = function(d) { return d.yield;}, // data -> value
+    //yScale = d3.scale.linear().range([height, 0]), // value -> display
+    yMap = function(d) { return y(yValue(d));}, // data -> display
 
 // Adds the svg canvas
 var	svg = d3.select("body")
@@ -86,8 +94,8 @@ d3.csv("yielddata.csv", function(error, data) {
       .enter().append("circle")
       .attr("class", "dot")
       .attr("r", 5)
-      .attr("cx", x)
-      .attr("cy", y)
+      .attr("cx", xMap)
+      .attr("cy", yMap)
       .attr("fill", "red");
  
 	// Add the X Axis
