@@ -22,7 +22,7 @@ path {
 <body>
  
 <!-- load the d3.js library -->	
-<script src="https://d3js.org/d3.v4.min.js"></script>
+<script src="https://d3js.org/d3.v3.min.js"></script>
  
 <script>
  
@@ -35,8 +35,8 @@ var	margin = {top: 30, right: 20, bottom: 30, left: 50},
 var	parseDate = d3.time.format("%d-%b-%y").parse;
  
 // Set the ranges
-var	x = d3.scaleBand().rangeRound([0, width]).padding(0.1),
-    y = d3.scaleLinear().rangeRound([height, 0]);
+var	x = d3.scale.Linear().range([0, width]),
+    y = d3.scale.Linear().range([height, 0]);
  
 // Define the axes
 var	xAxis = d3.svg.axis().scale(x)
@@ -78,7 +78,7 @@ d3.csv("yielddata.csv", function(error, data) {
 	g.append("g")
       .attr("class", "axis axis--x")
       .attr("transform", "translate(0," + height + ")")
-      .call(d3.axisBottom(x));
+      .call(xAxis);
  
 	// Add the Y Axis
 	svg.append("g")		
