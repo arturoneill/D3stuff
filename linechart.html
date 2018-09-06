@@ -32,10 +32,10 @@ var	margin = {top: 30, right: 20, bottom: 30, left: 50},
 	height = 270 - margin.top - margin.bottom;
  
 // Parse the date / time
-//var	parseDate = d3.time.format("%d-%b-%y").parse;
+var	parseDate = d3.time.format("%y").parse;
  
 // Set the ranges
-var	x = d3.scale.Linear().range([0, width]);
+var	x = d3.time.scale().range([0, width]);
 var    y = d3.scale.Linear().range([height, 0]);
  
 // Define the axes
@@ -61,7 +61,7 @@ var	svg = d3.select("body")
 // Get the data
 d3.csv("yielddata.csv", function(error, data) {
 	data.forEach(function(d) {
-		d.year = +d.year;
+		d.year = parseDate(d.year);
 		d.yield = +d.yield;
 	});
  
