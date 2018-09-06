@@ -131,19 +131,8 @@ d3.csv("yielddata.csv", function(error, data) {
                .style("opacity", 0);
       });
 
-      
- 
-	// Add the X Axis
-	svg.append("g")		
-		.attr("class", "x axis")
-		.attr("transform", "translate(0," + height + ")")
-		.call(xAxis);
-
- 
-		// Add the Y Axis
-	svg.append("g")		
-		.attr("class", "y axis")
-		.call(yAxis);
+	
+	
 	
 	// Add tick mouseover effect
 	
@@ -162,6 +151,20 @@ xAxis.selectAll(".tick")[0].forEach(function(d1) {
                .duration(500)
                .style("opacity", 0);
       });
+      
+ 
+	// Add the X Axis
+	svg.append("g")		
+		.attr("class", "x axis")
+		.attr("transform", "translate(0," + height + ")")
+		.call(xAxis);
+
+ 
+		// Add the Y Axis
+	svg.append("g")		
+		.attr("class", "y axis")
+		.call(yAxis);
+	
 
 
 	
