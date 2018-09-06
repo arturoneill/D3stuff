@@ -54,7 +54,8 @@ var	yAxis = d3.svg.axis().scale(y)
 var	valueline = d3.svg.line()
 	.x(function(d) { return x(d.year); })
 	.y(function(d) { return y(d.yield); });
-    
+
+
 // Adds the svg canvas
 var	svg = d3.select("body")
 	.append("svg")
@@ -78,6 +79,16 @@ d3.csv("yielddata.csv", function(error, data) {
 	svg.append("path")	
 		.attr("class", "line")
 		.attr("d", valueline(data));
+	
+	// Add the dots.
+	 svg.selectAll(".dot")
+      .data(data)
+      .enter().append("circle")
+      .attr("class", "dot")
+      .attr("r", 5)
+      .attr("cx", x)
+      .attr("cy", y)
+      .attr("fill", "red");
  
 	// Add the X Axis
 	svg.append("g")		
@@ -89,6 +100,7 @@ d3.csv("yielddata.csv", function(error, data) {
 	svg.append("g")		
 		.attr("class", "y axis")
 		.call(yAxis);
+	
  
 });
  
