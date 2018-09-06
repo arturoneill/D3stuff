@@ -147,10 +147,9 @@ d3.csv("yielddata.csv", function(error, data) {
 	
 	// Add tick mouseover effect
 	
-yAxis.selectAll(".tick")
-	.data(data)
-        .attr("class", "dot")
-        .on("mouseover", function(d) {
+xAxis.selectAll(".tick")[0].forEach(function(d1) {
+    var data = d3.select(d1).data();//get the data asociated with y axis
+    d3.select(d1).on("mouseover", function(d) {
           tooltip.transition()
                .duration(200)
                .style("opacity", .9);
