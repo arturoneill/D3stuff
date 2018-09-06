@@ -1,4 +1,17 @@
+/*-----------------------BARCHART STUFF ---------------------------------*/
+div.bar {
+	display: inline-block;
+	width: 20px;
+	background-color: lightgray;
+	margin-right: 5px;
+	
+}
 
+
+
+
+
+/*----------------------- MAP STUFF ---------------------------------*/
 input[type=checkbox] {
   display: none;
 }
@@ -8,6 +21,7 @@ input[type=checkbox] {
   transition: transform 0.25s ease;
   cursor: zoom-in;
 }
+
 
 input[type=checkbox]:checked ~ label > img {
   transform: scale(4);
@@ -52,6 +66,9 @@ stroke: green !important;
  
   cursor: pointer;
 }
+
+
+
 
 
 #path67 {
