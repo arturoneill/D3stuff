@@ -31,7 +31,7 @@ var g = svg.append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
 
 d3.csv("yielddata.csv", function(d) {
-  d.frequency = +d.frequency;
+  d.yield = +d.yield;
   return d;
 }, function(error, data) {
   if (error) throw error;
