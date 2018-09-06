@@ -22,6 +22,13 @@ path {
 	stroke-width: 1;
 	shape-rendering: crispEdges;
 }
+	
+	.tooltip {
+  position: absolute;
+  width: 200px;
+  height: 28px;
+  pointer-events: none;
+}
  
 </style>
 <body>
@@ -69,6 +76,11 @@ var	svg = d3.select("body")
 		.attr("height", height + margin.top + margin.bottom)
 	.append("g")
 		.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+	
+	// add the tooltip area to the webpage
+var tooltip = d3.select("body").append("div")
+    .attr("class", "tooltip")
+    .style("opacity", 0);
  
 // Get the data
 d3.csv("yielddata.csv", function(error, data) {
