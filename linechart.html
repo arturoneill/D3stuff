@@ -8,6 +8,7 @@ path {
   stroke: darkgray;
   stroke-width: 2;
   fill: none;
+   stroke-dasharray: 2em;
 }
  
 .axis path,
@@ -15,7 +16,6 @@ path {
 	fill: none;
 	stroke: grey;
 	stroke-width: 1;
-	stroke-dasharray: 2em;
 	shape-rendering: crispEdges;
 }
  
@@ -29,7 +29,7 @@ path {
  
 // Set the dimensions of the canvas / graph
 var	margin = {top: 30, right: 20, bottom: 30, left: 50},
-	width = 1000 - margin.left - margin.right,
+	width = 100% - margin.left - margin.right,
 	height = 270 - margin.top - margin.bottom;
  
 // Parse the date / time
