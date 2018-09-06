@@ -146,6 +146,7 @@ d3.csv("yielddata.csv", function(error, data) {
 	svg.selectAll(".tick")	
 		.data(data)
 		.enter().append("g")
+	.attr("class", "tick")
 	.on("mouseover", function(d) {
           tooltip.transition()
                .duration(200)
