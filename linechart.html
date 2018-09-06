@@ -14,7 +14,13 @@ path {
 		 
 		stroke-dasharray: 4px;
 	}
- 
+	
+ .dot {
+	 fill:none;
+	 stroke:grey;
+	 stroke-width: 1;
+	}
+	
 .axis path,
 .axis line {
 	fill: none;
@@ -106,7 +112,7 @@ d3.csv("yielddata.csv", function(error, data) {
       .attr("r", 5)
       .attr("cx", xMap)
       .attr("cy", yMap)
-		 .attr("fill", "red")
+	//.attr("fill", "red")
 	      .on("mouseover", function(d) {
           tooltip.transition()
                .duration(200)
