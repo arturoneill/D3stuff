@@ -133,8 +133,18 @@ d3.csv("yielddata.csv", function(error, data) {
 	svg.append("g")		
 		.attr("class", "x axis")
 		.attr("transform", "translate(0," + height + ")")
-		.call(xAxis)
-	on("mouseover", function(d) {
+		.call(xAxis);
+
+ 
+		// Add the Y Axis
+	svg.append("g")		
+		.attr("class", "y axis")
+		.call(yAxis);
+	
+	// Add tick mouseover effect
+	
+		body.selectAll(".tick")	
+	.on("mouseover", function(d) {
           tooltip.transition()
                .duration(200)
                .style("opacity", .9);
@@ -147,12 +157,6 @@ d3.csv("yielddata.csv", function(error, data) {
                .duration(500)
                .style("opacity", 0);
       });
-
- 
-		// Add the Y Axis
-	svg.append("g")		
-		.attr("class", "y axis")
-		.call(yAxis);
 	
  
 });
