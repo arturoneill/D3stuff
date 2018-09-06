@@ -94,6 +94,7 @@ d3.csv("yielddata.csv", function(error, data) {
       .attr("r", 5)
       .attr("cx", xMap)
       .attr("cy", yMap)
+		 .attr("fill", "red")
 	      .on("mouseover", function(d) {
           tooltip.transition()
                .duration(200)
@@ -109,7 +110,7 @@ d3.csv("yielddata.csv", function(error, data) {
                .style("opacity", 0);
       });
 
-      .attr("fill", "red");
+      
  
 	// Add the X Axis
 	svg.append("g")		
