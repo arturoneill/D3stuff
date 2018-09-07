@@ -33,6 +33,8 @@ d3.queue()
    //function that feeds data to geopath so it can draw 
 function ready (error, data) {
 
+	 //feature "obects.xxxx" has to include xxxx from actual topojson file 
+	
 	var countries = topojson.feature(data, data.objects.countries1).features
   console.log(countries)
 	
