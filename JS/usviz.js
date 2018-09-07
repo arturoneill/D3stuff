@@ -23,7 +23,7 @@ d3.queue()
 //define projection
   var projection = d3.geoAlbersUsa()
   .translate([width / 2, height / 2 ])
-  .scale(200)
+  .scale(400)
   
   //create a path (geoPath) using projection
   var path = d3.geoPath()
