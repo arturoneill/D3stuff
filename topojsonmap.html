@@ -35,12 +35,15 @@
 var svg = d3.select("svg");
 
 var path = d3.geoPath();
-  
-var states = topojson.features(data, data.objects.states).features
-console.log(states)
+
 
 d3.json("https://d3js.org/us-10m.v1.json", function(error, us) {
   if (error) throw error;
+  
+  
+    
+var states = topojson.features(us, us.objects.states).features
+console.log(states)
 
   svg.append("g")
       .attr("class", "states")
