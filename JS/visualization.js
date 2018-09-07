@@ -61,8 +61,13 @@ function ready (error, data, capitals) {
 	.data(capitals)
 	.enter().append("circle")
 	.attr("r", 2)
-	.attr("cx", 10)
-	.attr("cy", 10)
+	.attr("cx", function(d) {
+		console.log(d)
+		return 10;
+	})
+	.attr("cy", function(d) {
+		return 10;
+	})
  
 	
 }
