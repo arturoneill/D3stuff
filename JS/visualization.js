@@ -33,11 +33,11 @@ d3.queue()
    //function that feeds data to geopath so it can draw 
 function ready (error, data) {
 
-	var countries = topojson.feature(data, data.objects.countries).features
-  console.log(countires)
+	var countries = topojson.feature(data, data.objects.countries1).features
+  console.log(countries1)
 	
 	svg.selectAll(".country")
-	.data(countries)
+	.data(countries1)
 	.enter().append("path")
 	.attr("class", "country")
 	.attr("d", path)
