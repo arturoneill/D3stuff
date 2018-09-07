@@ -14,6 +14,8 @@ var svg = d3.select("#map")
 		    .append ("g")
 		    .attr("transform", "translate(" +margin.left + "," +margin.top + ")");
   
+
+//read in world.topojson
 d3.queue()
 	.defer(d3.json, "world.topojson")
 	.await(ready)
@@ -27,8 +29,8 @@ d3.queue()
   .projection(projection)
   
 	
-d3.json("https://d3js.org/us-10m.v1.json", function(error, us) {
-  if (error) throw error;
+function ready (error, data) {
+	console.log(data)
   
   
     
