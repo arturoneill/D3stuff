@@ -32,8 +32,15 @@
 <script src="https://d3js.org/topojson.v2.min.js"></script>
 <script>
 
+  
+  
 var svg = d3.select("svg");
 
+  
+  var	margin = {top: 30, right: 20, bottom: 30, left: 50},
+	width = 1000 - margin.left - margin.right,
+	height = 270 - margin.top - margin.bottom;
+ 
   var projection = d3.geoMercator()
   .translate([ width /2, height /2 ])
   
