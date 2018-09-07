@@ -44,9 +44,13 @@ function ready (error, data) {
 	.enter().append("path")
 	.attr("class", "country")
 	.attr("d", path)
-	//add some mouseover effects
-	.on('click', function(d) {
+	//add class 'selected'
+	.on('mouseover', function(d) {
 		d3.select(this).classed("selected", true)
+	})
+	//remove  class 'selected'
+	.on('mouseout', function(d) {
+		d3.select(this).classed("selected", false)
 	})
 	
  
