@@ -2,8 +2,8 @@
 
 //define margin, width, height variables
 var	margin = {top: 30, right: 20, bottom: 30, left: 50},
-	width = 800 - margin.left - margin.right,
-	height = 400 - margin.top - margin.bottom;
+	width = 1600 - margin.left - margin.right,
+	height = 800 - margin.top - margin.bottom;
 	
 //define svg variable	
 	
