@@ -46,7 +46,7 @@ function ready (error, data) {
 	.attr("d", path)
 	//add some mouseover effects
 	.on('click', function(d) {
-		d3.select(this).attr("fill", "purple")
+		d3.select(this).classed("selected", true)
 	})
 	
  
