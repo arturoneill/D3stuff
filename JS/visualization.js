@@ -1,7 +1,6 @@
 
 //define margin, width, height variables
-	
-  var	margin = {top: 30, right: 20, bottom: 30, left: 50},
+var	margin = {top: 30, right: 20, bottom: 30, left: 50},
 	width = 800 - margin.left - margin.right,
 	height = 400 - margin.top - margin.bottom;
 	
@@ -20,11 +19,12 @@ d3.queue()
 	.defer(d3.json, "world.topojson")
 	.await(ready)
  
+//define projection
   var projection = d3.geoMercator()
   .translate([ width /2, height /2 ])
   .scale(100)
   
-  
+ //assign projection 
   var path = d3.geoPath()
   .projection(projection)
   
@@ -32,7 +32,8 @@ d3.queue()
 function ready (error, data) {
 	console.log(data)
   
-  
+	var countries = topojson.feature(data, data.objects.countries).features
+  console.log(countires)
     
   svg.append("g")
       .attr("class", "states")
@@ -43,4 +44,4 @@ function ready (error, data) {
   svg.append("path")
       .attr("class", "state-borders")
       .attr("d", path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })));
-});
+}
