@@ -37,7 +37,7 @@ function ready (error, data) {
   console.log(countries1)
 	
 	svg.selectAll(".country")
-	.data(countries1)
+	.data(countries)
 	.enter().append("path")
 	.attr("class", "country")
 	.attr("d", path)
