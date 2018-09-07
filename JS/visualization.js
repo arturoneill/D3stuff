@@ -63,11 +63,11 @@ function ready (error, data, capitals) {
 	.attr("r", 2)
 	.attr("cx", function(d) {
 		var coords = projection([d.Longitude, d.Latitude])
-		console.log(d)
-		return 10;
+		return coords[0];
 	})
 	.attr("cy", function(d) {
-		return 10;
+		var coords = projection([d.Longitude, d.Latitude])
+		return coords[1];
 	})
  
 	
