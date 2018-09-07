@@ -1,6 +1,11 @@
 
 
 <!DOCTYPE html>
+
+<html>
+	
+	
+	<head>
 <style>
 
   
@@ -27,16 +32,19 @@
 }
 
 </style>
+		
+		
 <svg width="960" height="600"></svg>
 <script src="https://d3js.org/d3.v4.min.js"></script>
-<script src="https://d3js.org/topojson.v2.min.js"></script>
+<script src="https://d3js.org/topojson.v1.min.js"></script>
+<script src="https://d3js.org/queue.v1.min.js"></script>
 <script>
 
   //define margin, width, height variables
 	
   var	margin = {top: 30, right: 20, bottom: 30, left: 50},
-	width = 1000 - margin.left - margin.right,
-	height = 270 - margin.top - margin.bottom;
+	width = 800 - margin.left - margin.right,
+	height = 400 - margin.top - margin.bottom;
 	
 //define svg variable	
 	
@@ -59,7 +67,10 @@ var svg = d3.select("#map)
   
 
 
-
+d3.queue()
+	.defer(d3.json, "world.topojson")
+	.await(ready)
+	
 d3.json("https://d3js.org/us-10m.v1.json", function(error, us) {
   if (error) throw error;
   
@@ -79,3 +90,7 @@ d3.json("https://d3js.org/us-10m.v1.json", function(error, us) {
 });
 
 </script>
+	</head>
+	<body>
+	</body>
+</html>
