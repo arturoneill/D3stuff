@@ -32,7 +32,6 @@ var svg = d3.select("#graph")
           states.append("path")
           .attr("d", path);
           
-           });
-          
+         
 })();
 
