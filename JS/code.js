@@ -9,7 +9,7 @@ var svg = d3.select("#graph")
           .attr("height", height);
           
           
-          var projection = d3.geo.albersUSA()
+          var projection = d3.geoalbersUSA()
           .scale(1280)
           .translate([width/2, height/2]),
           path = d3.geo.path()
