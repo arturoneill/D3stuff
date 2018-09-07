@@ -82,8 +82,9 @@ function ready (error, data, capitals) {
 		var coords = projection([d.Longitude, d.Latitude])
 		return coords[1];
 	})
-	.text("this is a capital")
- 
+	.text(function(d) {
+		return d.Name
+ })
 	
 }
 	
