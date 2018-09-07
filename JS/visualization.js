@@ -44,6 +44,10 @@ function ready (error, data) {
 	.enter().append("path")
 	.attr("class", "country")
 	.attr("d", path)
+	//add some mouseover effects
+	.on('click', function(d) {
+		d3.select(this).attr("fill", "purple")
+	})
 	
  
 	
