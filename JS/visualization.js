@@ -69,6 +69,20 @@ function ready (error, data, capitals) {
 		var coords = projection([d.Longitude, d.Latitude])
 		return coords[1];
 	})
+	
+	svg.selectAll(".city-label")
+	.data(capitals)
+	.enter().append("text")
+	.attr("class", "city-label")
+	.attr("x", function(d) {
+		var coords = projection([d.Longitude, d.Latitude])
+		return coords[0];
+	})
+	.attr("y", function(d) {
+		var coords = projection([d.Longitude, d.Latitude])
+		return coords[1];
+	})
+	.text("this is a capital")
  
 	
 }
