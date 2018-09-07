@@ -23,7 +23,7 @@ d3.queue()
 //define projection
   var projection = d3.geoMercator()
   .translate([width / 2, height / 2 ])
-  .scale(100)
+  .scale(200)
   
   //create a path (geoPath) using projection
   var path = d3.geoPath()
@@ -32,6 +32,7 @@ d3.queue()
   
    //function that feeds data to geopath so it can draw 
 function ready (error, data) {
+	console.log(data)
 
 	 //feature "obects.xxxx" has to include xxxx from actual topojson file 
 	
