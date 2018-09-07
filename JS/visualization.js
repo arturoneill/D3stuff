@@ -86,7 +86,7 @@ function ready (error, data, capitals) {
 		return d.Name
 		 })
 		.attr("dx", 5)
-		.attr("dy", 5)
+		.attr("dy", 10)
 
 	
 }
