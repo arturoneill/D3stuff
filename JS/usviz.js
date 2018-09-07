@@ -17,12 +17,11 @@ var svg = d3.select("#usmap")
 
 //read in world.topojson
 d3.queue()
-	.defer(d3.json, "world.topojson")
-	.defer(d3.csv, "capitals.csv")
+	.defer(d3.json, "us.topojson")
 	.await(ready)
  
 //define projection
-  var projection = d3.geoMercator()
+  var projection = d3.geoAlbersUsa()
   .translate([width / 2, height / 2 ])
   .scale(200)
   
@@ -32,18 +31,18 @@ d3.queue()
  
   
    //function that feeds data to geopath so it can draw 
-function ready (error, data, capitals) {
+function ready (error, data) {
 	console.log(data)
 
 	 //feature "obects.xxxx" has to include xxxx from actual topojson file 
 	
-	var countries = topojson.feature(data, data.objects.countries1).features
-  console.log(countries)
+	var counties = topojson.feature(data, data.objects.counties).features
+  console.log(counties)
 	
-	svg.selectAll(".country")
-	.data(countries)
+	svg.selectAll(".county")
+	.data(counties)
 	.enter().append("path")
-	.attr("class", "country")
+	.attr("class", "county")
 	.attr("d", path)
 	//add class 'selected'
 	.on('mouseover', function(d) {
@@ -55,38 +54,6 @@ function ready (error, data, capitals) {
 	})
 	
 	
-	console.log(capitals)
-	
-	svg.selectAll(".city-circle")
-	.data(capitals)
-	.enter().append("circle")
-	.attr("r", 2)
-	.attr("cx", function(d) {
-		var coords = projection([d.Longitude, d.Latitude])
-		return coords[0];
-	})
-	.attr("cy", function(d) {
-		var coords = projection([d.Longitude, d.Latitude])
-		return coords[1];
-	})
-	
-	svg.selectAll(".city-label")
-	.data(capitals)
-	.enter().append("text")
-	.attr("class", "city-label")
-	.attr("x", function(d) {
-		var coords = projection([d.Longitude, d.Latitude])
-		return coords[0];
-	})
-	.attr("y", function(d) {
-		var coords = projection([d.Longitude, d.Latitude])
-		return coords[1];
-	})
-	.text(function(d) {
-		return d.Name
-		 })
-		.attr("dx", 5)
-		.attr("dy", 10)
 
 	
 }
