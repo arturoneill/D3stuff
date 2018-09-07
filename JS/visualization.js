@@ -36,7 +36,7 @@ function ready (error, data) {
 
 	 //feature "obects.xxxx" has to include xxxx from actual topojson file 
 	
-	var countries = topojson.feature(data, data.objects.countries2).features
+	var countries = topojson.feature(data, data.objects.countries1).features
   console.log(countries)
 	
 	svg.selectAll(".country")
