@@ -34,7 +34,7 @@ d3.queue()
 function ready (error, data) {
 
 	var countries = topojson.feature(data, data.objects.countries1).features
-  console.log(countries1)
+  console.log(countries)
 	
 	svg.selectAll(".country")
 	.data(countries)
