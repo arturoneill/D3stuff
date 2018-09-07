@@ -2,8 +2,8 @@
 
 //define margin, width, height variables
 var	margin = {top: 30, right: 20, bottom: 30, left: 50},
-	width = 1600 - margin.left - margin.right,
-	height = 800 - margin.top - margin.bottom;
+	width = 1200 - margin.left - margin.right,
+	height = 600 - margin.top - margin.bottom;
 	
 //define svg variable	
 	
@@ -23,7 +23,7 @@ d3.queue()
 //define projection
   var projection = d3.geoAlbersUsa()
   .translate([width / 2, height / 2 ])
-  .scale(400)
+  .scale(500)
   
   //create a path (geoPath) using projection
   var path = d3.geoPath()
