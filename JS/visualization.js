@@ -23,29 +23,26 @@ d3.queue()
  
 //define projection
   var projection = d3.geoMercator()
-  .translate([ width /2, height /2 ])
+  .translate([width / 2, height / 2 ])
   .scale(100)
   
- //assign projection 
+  //create a path (geoPath) using projection
   var path = d3.geoPath()
   .projection(projection)
-  
-	
+  	
 function ready (error, data) {
 	console.log(data)
   
 	var countries = topojson.feature(data, data.objects.countries).features
   console.log(countires)
-    
-  svg.append("g")
-      .attr("class", "states")
-    .selectAll("path")
-    .data(topojson.feature(us, us.objects.states).features)
-    .enter().append("path")
-      .attr("d", path);
-  svg.append("path")
-      .attr("class", "state-borders")
-      .attr("d", path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })));
+	
+	svg.selectAll(".country")
+	.data(countries)
+	.enter().append("path")
+	.attr("class", "country")
+	.attr("d", path)
+	
+ 
 	
 }
 	
