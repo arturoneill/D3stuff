@@ -34,7 +34,14 @@
 
 var svg = d3.select("svg");
 
-var path = d3.geoPath();
+  var projection = d3.geoMercator()
+  .translate([ width /2, height /2 ])
+  
+  
+  var path = d3.geoPath()
+  .projection(projection)
+  
+
 
 
 d3.json("https://d3js.org/us-10m.v1.json", function(error, us) {
@@ -42,8 +49,6 @@ d3.json("https://d3js.org/us-10m.v1.json", function(error, us) {
   
   
     
-var states = topojson.features(us, us.objects.states).features
-console.log(states)
 
   svg.append("g")
       .attr("class", "states")
