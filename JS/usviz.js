@@ -7,7 +7,7 @@ var	margin = {top: 30, right: 20, bottom: 30, left: 50},
 	
 //define svg variable	
 	
-var svg = d3.select("#map")
+var svg = d3.select("#usmap")
 		    .append("svg")
 		    .attr ("height", height + margin.top + margin.bottom)
 		    .attr ("width", width + margin.left + margin.right)
