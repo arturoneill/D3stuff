@@ -57,6 +57,12 @@ function ready (error, data, capitals) {
 	
 	console.log(capitals)
 	
+	svg.selectAll(".city-circle")
+	.data(capitals)
+	.enter().append("circle")
+	.attr("r", 2)
+	.attr("cx", 10)
+	.attr("cy", 10)
  
 	
 }
