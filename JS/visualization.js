@@ -1,1 +1,44 @@
 
+//define margin, width, height variables
+	
+  var	margin = {top: 30, right: 20, bottom: 30, left: 50},
+	width = 800 - margin.left - margin.right,
+	height = 400 - margin.top - margin.bottom;
+	
+//define svg variable	
+	
+var svg = d3.select("#map)
+		    .append("svg")
+		    .attr ("height", height + margin.top + margin.bottom)
+		    .attr ("width", width + margin.left + margin.right)
+		    .append ("g")
+		    .attr("transform", "translate(" +margin.left + "," +margin.top + ")");
+  
+d3.queue()
+	.defer(d3.json, "world.topojson")
+	.await(ready)
+ 
+  var projection = d3.geoMercator()
+  .translate([ width /2, height /2 ])
+  .scale(100)
+  
+  
+  var path = d3.geoPath()
+  .projection(projection)
+  
+	
+d3.json("https://d3js.org/us-10m.v1.json", function(error, us) {
+  if (error) throw error;
+  
+  
+    
+  svg.append("g")
+      .attr("class", "states")
+    .selectAll("path")
+    .data(topojson.feature(us, us.objects.states).features)
+    .enter().append("path")
+      .attr("d", path);
+  svg.append("path")
+      .attr("class", "state-borders")
+      .attr("d", path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })));
+});
