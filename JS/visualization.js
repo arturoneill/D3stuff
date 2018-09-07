@@ -84,6 +84,8 @@ function ready (error, data, capitals) {
 	})
 	.text(function(d) {
 		return d.Name
+		.attr("dx", 2)
+		.attr("dy", 2)
  })
 	
 }
