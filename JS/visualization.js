@@ -1,4 +1,3 @@
-
 (function() {
 
 //define margin, width, height variables
