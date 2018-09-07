@@ -29,7 +29,9 @@ d3.queue()
   //create a path (geoPath) using projection
   var path = d3.geoPath()
   .projection(projection)
-  	
+ 
+  
+   //function that feeds data to geopath so it can draw 
 function ready (error, data) {
 	console.log(data)
   
