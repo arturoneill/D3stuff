@@ -18,6 +18,7 @@ var svg = d3.select("#map")
 //read in world.topojson
 d3.queue()
 	.defer(d3.json, "world.topojson")
+	.defer(d3.csv, "capitals.csv")
 	.await(ready)
  
 //define projection
@@ -31,7 +32,7 @@ d3.queue()
  
   
    //function that feeds data to geopath so it can draw 
-function ready (error, data) {
+function ready (error, data, capitals) {
 	console.log(data)
 
 	 //feature "obects.xxxx" has to include xxxx from actual topojson file 
@@ -52,6 +53,9 @@ function ready (error, data) {
 	.on('mouseout', function(d) {
 		d3.select(this).classed("selected", false)
 	})
+	
+	
+	console.log(capitals)
 	
  
 	
