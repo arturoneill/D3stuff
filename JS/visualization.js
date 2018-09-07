@@ -7,7 +7,7 @@
 	
 //define svg variable	
 	
-var svg = d3.select("#map)
+var svg = d3.select("#map")
 		    .append("svg")
 		    .attr ("height", height + margin.top + margin.bottom)
 		    .attr ("width", width + margin.left + margin.right)
