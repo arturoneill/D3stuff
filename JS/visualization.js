@@ -1,4 +1,6 @@
 
+(function() {
+
 //define margin, width, height variables
 var	margin = {top: 30, right: 20, bottom: 30, left: 50},
 	width = 800 - margin.left - margin.right,
@@ -44,4 +46,7 @@ function ready (error, data) {
   svg.append("path")
       .attr("class", "state-borders")
       .attr("d", path(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; })));
+	
 }
+	
+)};
