@@ -62,6 +62,7 @@ function ready (error, data, capitals) {
 	.enter().append("circle")
 	.attr("r", 2)
 	.attr("cx", function(d) {
+		var coords = projection([d.Longitude, d.Latitude])
 		console.log(d)
 		return 10;
 	})
