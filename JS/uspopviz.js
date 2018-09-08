@@ -45,17 +45,10 @@ d3.queue()
         
     })
     .await(ready);
-
-
-
-// callback function  
-function ready(error, data) {
-
-    if (error) throw error;
-
-
- 
-//define projection
+	
+	
+	
+	//define projection
   var projection = d3.geoAlbersUsa()
   .translate([width / 2, height / 2 ])
   .scale(1200)
@@ -63,6 +56,16 @@ function ready(error, data) {
   //create a path (geoPath) using projection
   var path = d3.geoPath()
   .projection(projection)
+
+
+
+// callback function  
+function ready(error, data) {
+console.log(data)
+
+
+ 
+
   
   
   	var counties = topojson.feature(data, data.objects.county).features
@@ -84,37 +87,10 @@ function ready(error, data) {
             return (value != 0 ? pop_color(value) : "lightblue");  
 
         })
-        //.attr("class", "counties-income");
-
-    // draw new york map and bind income data
-   // d3.select("svg.income").selectAll("path")
-     //   .data(new_york.features)
-     //   .enter()
-     //   .append("path")
-     //   .attr("d", geoPath)
-    //    .attr("fill", "white")
-    //    .transition().duration(2000)
-      //  .delay(function(d, i) {
-     //       return i * 5; 
-   //     })
-   //     .ease(d3.easeLinear)
-   //     .attr("fill", function(d) { 
-    //        var value = incomeData.get(d.properties.GEOID);
-   //         return (value != 0 ? income_color(value) : "lightblue");  
-
-     //   })
-     //   .attr("class", "counties-income");
-    
-    // title
-    //d3.select("svg.income").selectAll("path")
-      //  .append("title")
-        //.text(function(d) {
-         //   return d.income = incomeData.get(d.properties.GEOID);
-       // });
 
 
+
+	
 }
-
-
-
+	
 })();
