@@ -36,7 +36,7 @@ var popData = d3.map();
 // asynchronous tasks, load topojson maps and data
 d3.queue()
     .defer(d3.json, "data/uscounty.topojson")
-    .defer(d3.csv, "data/Uscountypop.csv", function(d) { 
+    .defer(d3.csv, "data/UScountypop.csv", function(d) { 
         if (d.respop72014) {
             popData.set(d.id2, 0); 
         } else {
