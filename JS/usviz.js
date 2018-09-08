@@ -7,13 +7,7 @@ var	margin = {top: 30, right: 20, bottom: 30, left: 50},
 	
 
 	
-var pop_domain = [0, 10000, 50000, 100000, 200000, 500000, 1000000, 2000000]
-var pop_color = d3.scaleThreshold()
-    .domain(pop_domain)
-    .range(d3.schemeGreens[7]);	
-	
-	
-var popData = d3.map();
+
 	
 //define svg variable	
 	
@@ -28,14 +22,6 @@ var svg = d3.select("#usmap")
 //read in world.topojson
 d3.queue()
 	.defer(d3.json, "uscounty.topojson")
-	.defer(d3.csv, "data/UScountypop.csv", function(d) {
-        if (d.respop72017 == '-') {
-            povertyData.set(d.id2, 0);
-        } else {
-            povertyData.set(d.id2, +d.respop72017); 
-        }
-        
-    })
 	.await(ready)
  
 //define projection
@@ -49,7 +35,7 @@ d3.queue()
  
   
    //function that feeds data to geopath so it can draw 
-function ready (error, data, popData) {
+function ready (error, data) {
 	console.log(data)
 
 	 //feature "obects.xxxx" has to include xxxx from actual topojson file 
@@ -62,13 +48,7 @@ function ready (error, data, popData) {
 	.enter().append("path")
 	.attr("class", "county")
 	.attr("d", path)
-	  .attr("fill", function(d) { 
-            var value = popData.get(d.objects.id);
-            return (value != 0 ? pop_color(value) : "lightblue");  
-
-        })
         
-	
 	//add class 'selected'
 	.on('mouseover', function(d) {
 		d3.select(this).classed("selected", true)
