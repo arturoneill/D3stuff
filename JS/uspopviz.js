@@ -37,7 +37,7 @@ var popData = d3.map();
 d3.queue()
     .defer(d3.json, "data/uscounty.topojson")
     .defer(d3.csv, "data/UScountypop.csv", function(d) { 
-        if (d.respop72014) {
+        if (isNaN(d.respop72014)) {
             popData.set(d.id2, 0); 
         } else {
             popData.set(d.id2, +d.respop72014); 
