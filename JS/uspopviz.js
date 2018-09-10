@@ -95,7 +95,7 @@ console.log(data)
         })
         .ease(d3.easeLinear)
         .attr("fill", function(d) { 
-            var value = popData.get(d.id2);
+            var value = popData.get(d.objects.county.id);
             return (value != 0 ? pop_color(value) : "lightblue");  
 
         })
