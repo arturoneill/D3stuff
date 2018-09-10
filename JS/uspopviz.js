@@ -81,6 +81,7 @@ console.log(data)
   
   	//var counties = topojson.feature(data, data.objects.county).features
   console.log(USA)
+	console.log(popData)
 	
 	svg.selectAll(".county")
 	.data(USA.features)
@@ -94,7 +95,7 @@ console.log(data)
         })
         .ease(d3.easeLinear)
         .attr("fill", function(d) { 
-            var value = popData.get(d.objects.id2);
+            var value = popData.get(d.id2);
             return (value != 0 ? pop_color(value) : "lightblue");  
 
         })
