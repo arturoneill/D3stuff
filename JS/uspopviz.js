@@ -40,7 +40,7 @@ d3.queue()
         if (d.respop72014) {
             popData.set(d.id2, 0); 
         } else {
-            incomeData.set(d.id2, +d.respop72014); 
+            popData.set(d.id2, +d.respop72014); 
         }
         
     })
