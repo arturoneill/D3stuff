@@ -94,7 +94,7 @@ console.log(data)
         })
         .ease(d3.easeLinear)
         .attr("fill", function(d) { 
-            var value = popData.get(d.objects.id);
+            var value = popData.get(d.objects.id2);
             return (value != 0 ? pop_color(value) : "lightblue");  
 
         })
