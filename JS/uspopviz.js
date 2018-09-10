@@ -59,6 +59,9 @@ d3.queue()
 
 // callback function  
 function ready(error, data) {
+	
+	if (error) throw error;
+	
 console.log(data)
 
 
