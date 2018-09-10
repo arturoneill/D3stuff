@@ -49,13 +49,11 @@ d3.queue()
 	
 	
 	//define projection
-  var projection = d3.geoAlbersUsa()
-  .translate([width / 2, height / 2 ])
-  .scale(1200)
+ // var projection = d3.geoAlbersUsa()
+  //.translate([width / 2, height / 2 ])
+ // .scale(1200)
   
-  //create a path (geoPath) using projection
-  var path = d3.geoPath()
-  .projection(projection)
+
 
 
 
@@ -64,15 +62,25 @@ function ready(error, data) {
 console.log(data)
 
 
- 
+      // new york topojson
+    var USA = topojson.feature(data, {
+        type: "GeometryCollection",
+        geometries: data.objects.county.geometries
+    });
+	
+	var projection = d3.geoAlbersUsa()
+        .fitExtent([[20, 20], [460, 580]], USA);;
 
+  //create a path (geoPath) using projection
+  var path = d3.geoPath()
+  .projection(projection)
   
   
-  	var counties = topojson.feature(data, data.objects.county).features
-  console.log(counties)
+  	//var counties = topojson.feature(data, data.objects.county).features
+  console.log(USA)
 	
 	svg.selectAll(".county")
-	.data(counties)
+	.data(USA.features)
 	.enter().append("path")
 	.attr("class", "county")
 	.attr("d", path)
