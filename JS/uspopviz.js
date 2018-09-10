@@ -20,7 +20,7 @@ var svg = d3.select("#usmap")
 
 
 // color 
-var pop_domain = [0, 10000, 50000, 70000, 80000, 150000, 290000, 360000]
+var pop_domain = [0, 10000, 50000, 100000, 200000, 500000, 2000000, 15000000]
 var pop_color = d3.scaleThreshold()
     .domain(pop_domain)
     .range(d3.schemeGreens[7]);
