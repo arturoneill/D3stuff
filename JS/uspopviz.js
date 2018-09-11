@@ -31,9 +31,9 @@ var svg = d3.select("#usmap")
 var popData = d3.map();
 	
 	
-var x = d3.scaleLinear()
+/*var x = d3.scaleLinear()
     .domain([1, 10])
-    .rangeRound([600, 860]);
+    .rangeRound([600, 860]);*/
 
 var color = d3.scaleThreshold()
     .domain(d3.range(2, 10))
