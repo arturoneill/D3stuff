@@ -84,14 +84,15 @@ function ready (error, data) {
     .enter().append("path")
       .attr("d", path)
       .attr("class", "feature")
-      .on("click", clicked)
-	.on('mouseover', function(d) {
+      .on("click", clicked);
+	
+	/*.on('mouseover', function(d) {
 		d3.select(this).classed("selected", true)
 	})
 	//remove  class 'selected'
 	.on('mouseout', function(d) {
 		d3.select(this).classed("selected", false)
-	});
+	});*/
 
   g.append("path")
       .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
