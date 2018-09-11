@@ -1,8 +1,4 @@
-var zoom = d3.behavior.zoom()
-    .translate([0, 0])
-    .scale(1)
-    .scaleExtent([1, 8])
-    .on("zoom", zoomed);
+
 
 
 (function() {
@@ -13,7 +9,11 @@ var	margin = {top: 30, right: 20, bottom: 30, left: 50},
 	height = 600 - margin.top - margin.bottom;
 	
 
-	
+var zoom = d3.zoom()
+    .translate([0, 0])
+    .scale(1)
+    .scaleExtent([1, 8])
+    .on("zoom", zoomed);	
 
 	
 //define svg variable	
