@@ -83,13 +83,13 @@ console.log(data)
 	.enter().append("path")
 	.attr("class", "county")
 	.attr("fill", function(d) {return pop_color(d.respop72013 = popData.get(d.id2)); })
-	.attr("d", path)
+	.attr("d", path);
    //.attr("fill", "white")
-        .transition().duration(2000)
-        .delay(function(d, i) {
-            return i * 5; 
-        })
-        .ease(d3.easeLinear)
+        //.transition().duration(2000)
+       // .delay(function(d, i) {
+           // return i * 5; 
+        //})
+        //.ease(d3.easeLinear)
         
 
 
