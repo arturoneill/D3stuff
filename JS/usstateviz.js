@@ -23,9 +23,8 @@ var svg = d3.select("#usmap")
 		    .append("svg")
 		    .attr ("height", height + margin.top + margin.bottom)
 		    .attr ("width", width + margin.left + margin.right)
-		    .on("click", stopped, true)
-		    .append ("g")
-		    .attr("transform", "translate(" +margin.left + "," +margin.top + ")");
+		    .on("click", stopped, true);
+		    //.attr("transform", "translate(" +margin.left + "," +margin.top + ")");
 	
 svg.append("rect")
     .attr("class", "background")
@@ -64,7 +63,7 @@ function ready (error, data) {
 	var states = topojson.feature(data, data.objects.state).features
   console.log(states)
 	
-	svg.selectAll(".state")
+	/*svg.selectAll(".state")
 	.data(states)
 	.enter().append("path")
 	.attr("class", "state")
@@ -78,16 +77,26 @@ function ready (error, data) {
 	//remove  class 'selected'
 	.on('mouseout', function(d) {
 		d3.select(this).classed("selected", false)
-	})
+	})*/
 	
-	
+	 g.selectAll("path")
+      .data(states)
+    .enter().append("path")
+      .attr("d", path)
+      .attr("class", "feature")
+      .on("click", clicked);
+
+  g.append("path")
+      .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+      .attr("class", "mesh")
+      .attr("d", path);
 	
 	
 	
 }
 	
 	
-	d3.json("/mbostock/raw/4090846/us.json", function(error, us) {
+	/*d3.json("data/usstates.topojson", function(error, us) {
   if (error) throw error;
 
   g.selectAll("path")
@@ -102,7 +111,7 @@ function ready (error, data) {
       .attr("class", "mesh")
       .attr("d", path);
 });
-
+*/
 	
 function clicked(d) {
   if (active.node() === this) return reset();
