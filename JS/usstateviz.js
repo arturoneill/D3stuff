@@ -1,7 +1,7 @@
 
 
 
-(function() {
+function() {
 
 //define margin, width, height variables
 var	margin = {top: 30, right: 20, bottom: 30, left: 50},
@@ -124,4 +124,4 @@ function stopped() {
 	
 }
 	
-})();
+}
