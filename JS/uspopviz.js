@@ -91,7 +91,7 @@ console.log(data)
 	.data(USA.features)
 	.enter().append("path")
 	.attr("class", "county")
-	.attr("fill", function(d) {return color(d.respop72013 = popData.get(d.id2)); })
+	.attr("fill", function(d) {return color(d.respop72013 = popData.get(d.Id2)); })
 	.attr("d", path);
    //.attr("fill", "white")
         //.transition().duration(2000)
