@@ -94,10 +94,10 @@ function ready (error, data) {
 		d3.select(this).classed("selected", false)
 	});*/
 
-  g.append("path")
+  /*g.append("path")
       .datum(topojson.mesh(data, data.objects.state, function(a, b) { return a !== b; }))
       .attr("class", "mesh")
-      .attr("d", path);
+      .attr("d", path);*/
 	
 	
 	
