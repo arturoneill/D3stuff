@@ -95,7 +95,7 @@ function ready (error, data) {
 	});*/
 
   g.append("path")
-      .datum(topojson.mesh(us, us.objects.states, function(a, b) { return a !== b; }))
+      .datum(topojson.mesh(data, data.objects.state, function(a, b) { return a !== b; }))
       .attr("class", "mesh")
       .attr("d", path);
 	
