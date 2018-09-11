@@ -20,8 +20,8 @@ var svg = d3.select("#usmap")
 
 
 // color 
-var pop_domain = [0, 10000, 50000, 100000, 200000, 500000, 2000000, 15000000]
-var pop_color = d3.scaleThreshold()
+//var pop_domain = [0, 10000, 50000, 100000, 200000, 500000, 2000000, 15000000]
+//var pop_color = d3.scaleThreshold()
     .domain(pop_domain)
     .range(d3.schemeGreens[7]);
 
@@ -29,6 +29,15 @@ var pop_color = d3.scaleThreshold()
 
 // popData 
 var popData = d3.map();
+	
+	
+var x = d3.scaleLinear()
+    .domain([1, 10])
+    .rangeRound([600, 860]);
+
+var color = d3.scaleThreshold()
+    .domain(d3.range(2, 10))
+    .range(d3.schemeBlues[9]);
 
 
 
@@ -82,7 +91,7 @@ console.log(data)
 	.data(USA.features)
 	.enter().append("path")
 	.attr("class", "county")
-	.attr("fill", function(d) {return pop_color(d.respop72013 = popData.get(d.id2)); })
+	.attr("fill", function(d) {return color(d.respop72013 = popData.get(d.id2)); })
 	.attr("d", path);
    //.attr("fill", "white")
         //.transition().duration(2000)
