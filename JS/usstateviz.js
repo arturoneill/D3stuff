@@ -19,7 +19,7 @@ var svg = d3.select("#usmap")
 		    .append("svg")
 		    .attr ("height", height + margin.top + margin.bottom)
 		    .attr ("width", width + margin.left + margin.right)
-		    .on("click", stopped, true);
+		    .on("click", stopped, true)
 		    .append ("g")
 		    .attr("transform", "translate(" +margin.left + "," +margin.top + ")");
 	
