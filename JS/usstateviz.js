@@ -21,7 +21,7 @@ var svg = d3.select("#usmap")
 
 //read in world.topojson
 d3.queue()
-	.defer(d3.json, "usstates.topojson")
+	.defer(d3.json, "data/usstates.topojson")
 	.await(ready)
  
 //define projection
